@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Book = ({ bdata }) => {
+   
 
     return (
         <div>
-            <div className="max-w-xs rounded-2xl shadow-md border p-4 space-y-3">
+            <div className="max-w-xs rounded-2xl shadow-md border p-4 space-y-3 h-[400px]">
                 {/* Book Image */}
                 <div className="flex justify-center bg-gray-200 py-5 rounded-2xl">
                     <img
@@ -17,7 +19,7 @@ const Book = ({ bdata }) => {
                 {/* Tags */}
                 <div className="flex gap-2">
                     <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">
-                        Young Adult
+                        {bdata.category}
                     </span>
                     <span className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">
                         Identity
@@ -27,16 +29,16 @@ const Book = ({ bdata }) => {
                 {/* Title & Author */}
                 <div>
                     <h3 className="text-lg font-bold text-gray-800">
-                        The Catcher in the Rye
+                        {bdata.bookName}
                     </h3>
-                    <p className="text-gray-500 text-sm">By : Awlad Hossain</p>
+                    <p className="text-gray-500 text-sm">By : {bdata.author}</p>
                 </div>
 
                 {/* Category & Price */}
                 <div className="flex items-center justify-between border-t pt-2">
                     <span className="text-gray-600 text-sm">Fiction</span>
                     <div className="flex items-center gap-1">
-                        <span className="font-semibold">5.00</span>
+                        <span className="font-semibold">{bdata.rating}</span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

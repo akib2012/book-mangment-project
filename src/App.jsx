@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router'
 import './App.css'
 import Books from './Components/Books'
 import Hero from './Components/Hero'
@@ -9,8 +10,9 @@ function App() {
   return (
     <>
       <Nabvar></Nabvar>
-      <Hero></Hero>
-      <Books></Books>
+      <Outlet></Outlet>
+      {/* <Hero></Hero>
+      <Books></Books> */}
       
     </>
   )
