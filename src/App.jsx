@@ -1,20 +1,28 @@
-import { Outlet } from 'react-router'
+import { createContext, useState } from 'react'
+import { Outlet, useNavigation } from 'react-router' // <-- react-router-dom
 import './App.css'
 import Books from './Components/Books'
 import Hero from './Components/Hero'
+
+import LoadingSpinner from './Components/LoadingSpinner'
 import Nabvar from './Components/Nabvar'
 
-function App() {
 
+export const Cartcontest = createContext({})
+
+function App() {
+  const navigation = useNavigation()
+  const [list, setList] = useState([])
 
   return (
-    <>
+    <Cartcontest.Provider value={{ list, setList }}>
       <Nabvar></Nabvar>
-      <Outlet></Outlet>
-      {/* <Hero></Hero>
-      <Books></Books> */}
-      
-    </>
+      {navigation?.state === 'loading' ? (
+        <LoadingSpinner />
+      ) : (
+        <Outlet />
+      )}
+    </Cartcontest.Provider>
   )
 }
 

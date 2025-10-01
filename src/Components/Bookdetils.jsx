@@ -1,10 +1,13 @@
-import React from 'react';
-import { useLoaderData } from 'react-router';
+import React, { use, useState } from 'react';
+import { useLoaderData, useLocation } from 'react-router';
+import { Cartcontest } from '../App';
 
 
 const Bookdetils = () => {
     const detils = useLoaderData();
-    console.log(detils);
+    const location = useLocation()
+    // console.log(location);
+    const {list, setList} = use(Cartcontest)
     return (
         <div className="max-w-5xl mx-auto bg-white shadow-lg rounded-2xl flex gap-6 p-6 border mt-10">
             {/* Left Side (Book Image) */}
@@ -66,7 +69,7 @@ const Bookdetils = () => {
                     <button className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition">
                         Read
                     </button>
-                    <button className="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition">
+                    <button onClick={() => setList((prev) => [...prev, location?.state] )} className="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition">
                         Wishlist
                     </button>
                 </div>

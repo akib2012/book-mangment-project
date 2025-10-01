@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Links } from 'react-router';
+import Themetoggole from './Themetoggole';
 
 const Nabvar = () => {
     return (
@@ -14,7 +15,7 @@ const Nabvar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><a>Home</a></li>
-                            <li><a href="">Listed Book</a></li>
+                            <Link to='/lists_book'><li><a href="">Listed Book</a></li></Link>
                             <li><a>Page to read</a></li>
                         </ul>
                     </div>
@@ -30,8 +31,10 @@ const Nabvar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+
                     <a className='btn mr-2.5'>Sing up</a>
-                    <a className="btn">Sing In</a>
+                    <a className="btn mr-2.5">Sing In</a>
+                    <a className="btn"><Themetoggole></Themetoggole></a>
                 </div>
             </div>
         </div>
