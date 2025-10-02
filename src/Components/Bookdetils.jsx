@@ -66,7 +66,7 @@ const Bookdetils = () => {
 
                 {/* Buttons */}
                 <div className="flex gap-4">
-                    <button className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition">
+                    <button onClick={() => setList((pre) => [...pre, location?.state] )} className="bg-gray-900 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition">
                         Read
                     </button>
                     <button onClick={() => setList((prev) => [...prev, location?.state] )} className="bg-teal-500 text-white px-5 py-2 rounded-lg hover:bg-teal-600 transition">

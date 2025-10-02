@@ -11,13 +11,13 @@ import Nabvar from './Components/Nabvar'
 export const Cartcontest = createContext({})
 
 function App() {
-  const navigation = useNavigation()
+  const navigation = useNavigation() //  by this i can set the loader ... 
   const [list, setList] = useState([])
 
   return (
     <Cartcontest.Provider value={{ list, setList }}>
       <Nabvar></Nabvar>
-      {navigation?.state === 'loading' ? (
+      {navigation?.state === 'loading' ? (  // inner navigation .state e data pawa jai !!!
         <LoadingSpinner />
       ) : (
         <Outlet />

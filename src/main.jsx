@@ -8,6 +8,8 @@ import Hero from './Components/Hero.jsx'
 import Books from './Components/Books.jsx'
 import Bookdetils from './Components/Bookdetils.jsx'
 import LoadingSpinner from './Components/LoadingSpinner.jsx'
+import Read from './Components/Read.jsx'
+import Sltbook from './Components/Sltbook.jsx'
 const Router = createBrowserRouter([
   {
     path: '/',
@@ -29,8 +31,16 @@ const Router = createBrowserRouter([
       },
       {
         path: '/list_books',
-        Component: Selectedbook,
+        element: <Selectedbook />,  // <-- Component → element
+        children: [
+          
+          {
+            path: 'white-list',
+            element: <Read />        // <-- Component → element
+          },
+        ]
       },
+
 
       {
         path: "book-detils/:id", // dyanmic routing path decilare here
